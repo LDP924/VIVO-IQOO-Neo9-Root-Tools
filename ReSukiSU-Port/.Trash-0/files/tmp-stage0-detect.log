@@ -1,0 +1,4 @@
+=== detect SEND=192 ===
+done: 2000 attempts in 131.5s
+=== detect SEND=1472 ===
+done: 2000 attempts in 223.1s

@@ -1,0 +1,41 @@
+cpus(实测可用): 0 1 2 3 4 5 | exec=5 parent=0 del=1 2 3 4 
+stage0 v3 mode=detect KS=20000 workers=5 exec_after=32 exec_cpu=5 parent_cpu=0 del=[1,2,3,4] socks=512 msgs=8 send=0x3de0 rcu=20000 drain_ms=6000 attempts=12
+   irq: fds=1 period=50000ns lead=0ns sweep=0 x0
+detect 模式：安全片段（rb 指针全 0）—— 命中判据 = 回读流里出现连续零字节
+  attempt=1 created=20000 slab_after_create=21266/21266
+  attempt=1 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=21751 exec_at_us=114 batch_us=21769 (no hit)
+  timing(ms) create=94.6 storm=80.5 drain=123.1 fill=38.1 kill=2.2 check=49.1 | PRE_DRAIN+slab=94.6 total=387.5
+  attempt=2 created=20000 slab_after_create=21669/21669
+  attempt=2 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=19450 exec_at_us=137 batch_us=26581 (no hit)
+  timing(ms) create=198.4 storm=42.2 drain=130.9 fill=42.4 kill=1.5 check=55.5 | PRE_DRAIN+slab=198.4 total=471.0
+  attempt=3 created=20000 slab_after_create=21700/21700
+  attempt=3 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=16552 exec_at_us=56 batch_us=16569 (no hit)
+  timing(ms) create=91.2 storm=51.0 drain=123.1 fill=39.1 kill=2.2 check=54.2 | PRE_DRAIN+slab=91.2 total=360.6
+  attempt=4 created=20000 slab_after_create=21452/21452
+  attempt=4 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=22056 exec_at_us=134 batch_us=28693 (no hit)
+  timing(ms) create=169.8 storm=84.6 drain=124.8 fill=39.8 kill=2.5 check=56.3 | PRE_DRAIN+slab=169.8 total=477.8
+  attempt=5 created=20000 slab_after_create=21638/21638
+  attempt=5 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=24526 exec_at_us=54 batch_us=24545 (no hit)
+  timing(ms) create=98.3 storm=70.4 drain=125.9 fill=40.5 kill=2.0 check=50.0 | PRE_DRAIN+slab=98.3 total=387.1
+  attempt=6 created=20000 slab_after_create=21328/21328
+  attempt=6 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=20919 exec_at_us=135 batch_us=28198 (no hit)
+  timing(ms) create=185.7 storm=101.3 drain=126.5 fill=39.9 kill=2.2 check=50.3 | PRE_DRAIN+slab=185.7 total=505.9
+  attempt=7 created=20000 slab_after_create=21297/21297
+  attempt=7 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=17387 exec_at_us=52 batch_us=17406 (no hit)
+  timing(ms) create=99.2 storm=65.7 drain=122.1 fill=50.0 kill=1.6 check=55.7 | PRE_DRAIN+slab=99.2 total=394.2
+  attempt=8 created=20000 slab_after_create=21638/21638
+  attempt=8 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=22693 exec_at_us=224 batch_us=27236 (no hit)
+  timing(ms) create=176.3 storm=71.1 drain=129.2 fill=38.5 kill=1.9 check=52.1 | PRE_DRAIN+slab=176.3 total=469.0
+  attempt=9 created=20000 slab_after_create=21607/21607
+  attempt=9 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=17096 exec_at_us=43 batch_us=17116 (no hit)
+  timing(ms) create=97.4 storm=38.9 drain=118.4 fill=38.0 kill=2.2 check=54.4 | PRE_DRAIN+slab=97.4 total=349.2
+  attempt=10 created=20000 slab_after_create=21669/21669
+  attempt=10 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=17718 exec_at_us=77 batch_us=24607 (no hit)
+  timing(ms) create=192.7 storm=87.8 drain=126.8 fill=43.8 kill=2.5 check=52.5 | PRE_DRAIN+slab=192.7 total=506.0
+  attempt=11 created=20000 slab_after_create=21452/21452
+  attempt=11 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=22086 exec_at_us=96 batch_us=23395 (no hit)
+  timing(ms) create=97.0 storm=57.6 drain=120.4 fill=35.3 kill=1.9 check=52.7 | PRE_DRAIN+slab=97.0 total=364.9
+  attempt=12 created=20000 slab_after_create=21669/21669
+  attempt=12 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=18832 exec_at_us=125 batch_us=29975 (no hit)
+  timing(ms) create=175.6 storm=80.0 drain=136.7 fill=37.1 kill=1.3 check=51.1 | PRE_DRAIN+slab=175.6 total=481.8
+done: 12 attempts in 5.2s  hits=0 (ptr=0 zero=0)

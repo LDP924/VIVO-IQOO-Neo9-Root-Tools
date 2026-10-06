@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- dock 切页 · 向右翻: 目标页从右侧滑入 (点击索引更大的 tab, 如 主页 -> 日志)。
+     出场页不整屏推走, 只左移 25% 做视差 —— 整屏推走会在两页之间露出窗口底色。 -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:interpolator/decelerate_quint">
+    <translate
+        android:duration="240"
+        android:fromXDelta="100%p"
+        android:toXDelta="0" />
+</set>

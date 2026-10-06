@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- dock「主页」图标。填充色固定白色, 实际颜色由 Dock.highlight 用 setColorFilter 给
+     (选中 = ?attr/ksuPrimary, 未选中 = text_tertiary)。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M12 3L21 11H18.6V20.4H13.4V14.8H10.6V20.4H5.4V11H3Z" />
+</vector>

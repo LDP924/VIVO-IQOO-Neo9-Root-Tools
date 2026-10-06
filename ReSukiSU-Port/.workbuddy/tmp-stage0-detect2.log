@@ -1,0 +1,4 @@
+=== detect SEND=192 ===
+done: 1000 attempts in 87.1s  exec_ack=1000/1000
+=== detect SEND=1472 ===
+done: 1000 attempts in 122.2s  exec_ack=1000/1000

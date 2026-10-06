@@ -1,0 +1,1 @@
+cmd_/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.mod := printf '%s\n'   unpatch.o | awk '!x[$$0]++ { print("/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/"$$0) }' > /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.mod

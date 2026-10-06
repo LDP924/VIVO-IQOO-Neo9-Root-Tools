@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KSUOneTap</string>
+    <string name="brand_title">KSUOneTap</string>
+
+    <!-- ================= dock ================= -->
+    <string name="dock_home">主页</string>
+    <string name="dock_log">日志</string>
+    <string name="dock_settings">设置</string>
+    <string name="dock_about">关于</string>
+
+    <string name="section_status">运行状态</string>
+    <string name="section_log">运行日志</string>
+
+    <string name="label_shizuku">Shizuku</string>
+    <string name="label_ksu">KernelSU</string>
+    <string name="label_root">Root</string>
+    <string name="label_device">设备</string>
+
+    <string name="state_checking">检测中</string>
+    <string name="state_unknown">未知</string>
+
+    <!-- 大状态卡: 一句话结论 + 下一步提示 -->
+    <string name="verdict_ok">工作正常</string>
+    <string name="verdict_temp_root">临时 root 就绪</string>
+    <string name="verdict_no_shizuku">需要激活 Shizuku</string>
+    <string name="verdict_not_ready">未就绪</string>
+    <string name="verdict_sub_ok">KernelSU 已激活 · su 可直接使用</string>
+    <string name="verdict_sub_temp_root">KernelSU 未激活 · 可点「激活 KSU」接着上，不用重跑漏洞</string>
+    <string name="verdict_sub_no_shizuku">用电脑 adb 激活 Shizuku 后即可一键 Root</string>
+    <string name="verdict_gl_ready_go">GhostLock 已就绪 · 点「一键 Root」</string>
+    <string name="verdict_sub_gl_ready_go">⚠️ 先锁屏静置 —— 负载会毁掉竞态窗口; 不需要 Shizuku</string>
+    <string name="verdict_sub_gl_ready">GhostLock 临时 root 在线 · per-boot, 重启后重打一次</string>
+    <string name="verdict_sub_not_ready">点下方「一键 Root」开始</string>
+
+    <string name="btn_deploy">一键 Root</string>
+    <string name="btn_deploy_root_only">一键 Root</string>
+    <string name="btn_deploy_busy">执行中…</string>
+    <string name="btn_soft_reboot">软重启</string>
+    <string name="btn_activate_ksu">激活 KSU</string>
+    <string name="btn_refresh">刷新状态</string>
+    <string name="btn_copy">复制</string>
+    <string name="btn_clear">清空</string>
+    <string name="btn_terminal">终端</string>
+
+    <string name="copied">日志已复制到剪贴板</string>
+    <string name="cleared">日志已清空</string>
+    <string name="jump_latest">↓ 回到最新</string>
+    <string name="log_empty">暂无日志。在主页点「一键 Root」后，整个流程的输出会记录在这里。</string>
+
+    <string name="hint_ready">准备就绪：需先在电脑上 adb 激活 Shizuku</string>
+    <string name="hint_busy">提权进行中，请勿退出或切换应用</string>
+    <string name="hint_ok">KernelSU 已激活，可直接使用 su</string>
+    <string name="hint_ok_root_only">临时 root 已就绪（内置 su 可用）·可在内置终端选「临时 root」通道使用</string>
+    <string name="hint_fail">部署未完成，请查看日志后重试</string>
+    <string name="hint_need_root">软重启 / 清理并重启需要 root。请先完成「一键 Root」或让 KernelSU 处于激活状态。</string>
+
+    <string name="btn_shizuku">激活 Shizuku</string>
+    <string name="btn_cleanup">清理并重启</string>
+
+    <string name="dlg_deploy_title">开始一键 Root？</string>
+    <string name="dlg_deploy_msg">将执行：部署文件 → 冷窗口内命中漏洞取得临时 root → 加载 KernelSU 驱动 → 加载 unpatch/vrpatch → 安装 ReSukiSU Manager。\n\n全程约 1–9 分钟，期间请勿退出应用。建议在刚重启后的冷窗口内执行以提高命中率。</string>
+    <string name="dlg_deploy_root_only_title">开始一键 Root？</string>
+    <string name="dlg_deploy_root_only_msg">当前设置：仅提取 Root（不部署 KernelSU）。\n\n将执行：部署文件 → 冷窗口内命中漏洞取得临时 root（内置 su，su -c \'id\' 即 uid=0）→ 停止。\n\n提取成功后可在内置终端选择「临时 root」通道执行 root 命令；重启即失效。</string>
+    <string name="dlg_cleanup_title">清理并重启？</string>
+    <string name="dlg_cleanup_msg">将卸载 ReSukiSU Manager、清空 /data/local/tmp 的部署物与 /data/adb 的全部内容，然后立即重启设备。\n\n此操作不可撤销，重启后需重新部署。仅在需要恢复干净环境时使用。</string>
+    <string name="dlg_gate_msg">%1$s\n\n继续执行属于未适配组合，可能命中失败或触发内核 panic（重启可恢复，无永久损伤）。确定要继续吗？</string>
+    <string name="dlg_activate_title">激活 KernelSU？</string>
+    <string name="dlg_activate_msg">将接着当前的临时 root 继续：补推 KSU 文件 → 加载 KernelSU 驱动 → 加载 unpatch/vrpatch → 安装 ReSukiSU Manager。\n\n全程约 10–60 秒，不需要重新命中漏洞。完成后这个按钮会被「软重启」取代。</string>
+    <string name="dlg_ok">继续</string>
+    <string name="dlg_cancel">取消</string>
+
+    <!-- ================= 设置 ================= -->
+    <string name="settings_title">设置</string>
+    <string name="settings_section_extract">一键提取模式</string>
+    <string name="settings_mode_root_only">仅使用 root，不部署 KSU</string>
+    <string name="settings_mode_root_only_desc">只命中漏洞拿临时 root（exploit 自带内置 su，直接 su -c \'id\' 即 uid=0）。重启即失效，不改动任何持久化内容。适合先在终端里验证 root 可用性。</string>
+    <string name="settings_mode_root_ksu">提取 root 并部署 KSU</string>
+    <string name="settings_mode_root_ksu_desc">完整流程：临时 root → 加载 KernelSU 驱动 → 加载 unpatch/vrpatch → 安装 ReSukiSU Manager。重启后 KSU 失效但模块可再次一键部署。</string>
+    <string name="settings_current_device">当前设备</string>
+
+    <!-- ================= 外观 ================= -->
+    <string name="settings_section_theme">外观</string>
+    <string name="theme_seed_label">主题色</string>
+    <string name="theme_seed_purple">靛紫</string>
+    <string name="theme_seed_blue">蔚蓝</string>
+    <string name="theme_seed_teal">青碧</string>
+    <string name="theme_seed_green">翠绿</string>
+    <string name="theme_seed_orange">暖橙</string>
+    <string name="theme_seed_red">绯红</string>
+    <string name="theme_mode_label">深浅模式</string>
+    <string name="theme_mode_system">跟随系统</string>
+    <string name="theme_mode_light">浅色</string>
+    <string name="theme_mode_dark">深色</string>
+    <string name="theme_mode_unsupported">当前系统不支持强制深浅模式（需 Android 12 及以上），已保持跟随系统</string>
+    <string name="theme_note">色板即时生效，顶栏、按钮、选中态与状态色会一起换。深浅模式在 Android 12 及以上可直接切换。</string>
+    <string name="theme_note_old_android">当前系统（Android 11 及以下）没有强制深浅模式的接口，只能跟随系统设置。</string>
+
+    <!-- ================= 关于 ================= -->
+    <string name="about_tagline">vivo iQOO Neo9 临时 root / KernelSU 一键部署</string>
+    <string name="about_section_app">应用</string>
+    <string name="about_app_label">应用名</string>
+    <string name="about_version_label">版本</string>
+    <string name="about_pkg_label">包名</string>
+    <string name="about_pkg_value">com.neoroot.ksuonetap</string>
+    <string name="about_section_scope">适用范围</string>
+    <string name="about_device_label">适用机型</string>
+    <string name="about_device_value">vivo iQOO Neo9（PD2338 / V2338A）</string>
+    <string name="about_system_label">支持 KSU 部署的系统版本</string>
+    <string name="about_system_value">PD2338_A_15.1.14.7.W10.V000L1\nPD2338_A_16.2.13.2.W10.V000L1（GhostLock 链，需宽容模式）</string>
+    <string name="about_vuln_label">漏洞利用范围</string>
+    <string name="about_vuln_value">CVE-2025-21479：OriginOS 4 ~ OriginOS 5（理论适用，已适配版本见下）\nCVE-2026-43499：OriginOS 6</string>
+    <string name="about_temp_root_label">临时 root 适配范围</string>
+    <string name="about_temp_root_value">PD2338_A_15.1.14.7.W10.V000L1\nPD2338_A_14.0.17.2.W10.V000L1\nPD2338_A_16.2.13.2.W10.V000L1</string>
+    <string name="about_section_license">授权与使用</string>
+    <string name="about_license_note">本工具仅供安全研究使用，请勿用于非法用途。</string>
+    <string name="about_section_notice">声明</string>
+    <string name="about_notice">本应用仅针对 vivo iQOO Neo9（PD2338）。提权利用两条漏洞：CVE-2025-21479（Adreno GPU，理论适用 OriginOS 4 ~ 5，exploit_vivo_neo9 执行流，需 Shizuku 部署）与 CVE-2026-43499（futex PI requeue / GhostLock，适用 OriginOS 6，App 内直接执行、无需 Shizuku）。PD2338_A_16.2.13.2.W10.V000L1（OriginOS 6 / 内核 5.15.197）现支持 KernelSU 部署：一键 Root 后点「激活 KSU」加载 kernelsu-vivo.ko 与 vrpatch.ko；因该内核上 KSU + SELinux enforcing 会断网（vivo netb 过滤器），加载完成后需保持宽容模式（部署流程已自动设置）。漏洞利用与内核补丁绑定具体版本的内存布局与符号偏移，未做偏移适配的版本上执行可能命中失败或触发内核 panic（重启可恢复，无永久损伤）。</string>
+    <string name="about_section_thanks">鸣谢</string>
+    <string name="about_thanks">KernelSU / ReSukiSU 项目 —— KSU 内核接口、ksud 与管理器；\nGhostLock App（YuKongA）—— CVE-2026-43499 执行流与运行时模型的参考实现；\nCVE-2025-21479 与 CVE-2026-43499 的漏洞研究者 —— 没有原始漏洞发现就没有本工具；\n以及所有参与真机适配验证的社区成员。</string>
+
+    <!-- ================= 终端 ================= -->
+    <string name="terminal_title">内置终端</string>
+    <string name="term_channel_label">执行通道</string>
+    <string name="term_channel_auto">自动</string>
+    <string name="term_channel_shell">Shizuku shell</string>
+    <string name="term_channel_temp">临时 root</string>
+    <string name="term_channel_ksu">KernelSU</string>
+    <string name="term_input_hint">输入命令，例如 id</string>
+    <string name="term_run">执行</string>
+    <string name="term_prev">↑ 上一条</string>
+    <string name="term_next">↓ 下一条</string>
+    <string name="term_clear">清空</string>
+    <string name="term_copy">复制</string>
+    <string name="term_running">执行中…</string>
+    <string name="term_need_shizuku">Shizuku 未激活：先用电脑 adb 激活后再使用终端</string>
+    <string name="term_empty">还没有输出。输入命令后点「执行」。</string>
+    <string name="term_truncated">…(更早的输出已省略)</string>
+    <string name="pct_zero">0%</string>
+    <string name="pct_fmt">%1$d%%</string>
+    <string name="pct_failed">失败：%1$s</string>
+    <string name="btn_export">导出</string>
+    <string name="btn_history">历史</string>
+    <string name="log_history_title">日志历史（按日期保存）</string>
+    <string name="log_live">本次会话（实时）</string>
+    <string name="log_day_head">===== %1$s（历史日志）=====</string>
+    <string name="log_day_empty">这一天没有日志。</string>
+    <string name="export_title">导出日志</string>
+    <string name="export_none">没有可导出的内容</string>
+</resources>

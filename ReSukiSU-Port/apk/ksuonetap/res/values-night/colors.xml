@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 深色主题覆盖 (values-night)。只覆盖会变的项, 其余沿用 values/colors.xml -->
+<resources>
+    <color name="bg_window">#FF141218</color>
+    <color name="bg_surface">#FF1D1B20</color>
+    <color name="bg_container">#FF28252E</color>
+    <color name="bg_log">#FF141218</color>
+
+    <color name="topbar_fg">#FFE6E0E9</color>
+
+    <color name="text_primary">#FFE6E0E9</color>
+    <color name="text_secondary">#FFCAC4D0</color>
+    <color name="text_tertiary">#FF938F99</color>
+    <color name="outline">#FF49454F</color>
+    <color name="divider">#FF332F39</color>
+
+    <color name="state_ok">#FFB7F1B9</color>
+    <color name="state_ok_bg">#FF1B3A20</color>
+    <color name="state_warn">#FFFFD8A8</color>
+    <color name="state_warn_bg">#FF4A3200</color>
+    <color name="state_err">#FFFFB4AB</color>
+    <color name="state_err_bg">#FF4E1F1C</color>
+    <color name="state_idle">#FFCAC4D0</color>
+    <color name="state_idle_bg">#FF332F39</color>
+
+    <color name="ripple">#33FFFFFF</color>
+
+    <!-- 深色下胶囊改浅底 (文字用 ksuOnPrimary 的深色, 保证可读) -->
+    <color name="bg_input">#FF141218</color>
+    <color name="pill_bg">#FFE6E0E9</color>
+</resources>

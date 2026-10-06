@@ -1,0 +1,1 @@
+cmd_/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/offprobe/offprobe.lto.o := ld.lld -EL  -maarch64elf -z norelro -mllvm -import-instr-limit=5 -z noexecstack   -r -o /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/offprobe/offprobe.lto.o  --whole-archive /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/offprobe/offprobe.o

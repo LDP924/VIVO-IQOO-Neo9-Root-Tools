@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 主题色 attr。
+     布局/drawable 只引用 ?attr/ksu*, 具体色值由主题 style 给 —— 换主题 = 换 style,
+     不需要重建资源。色板子主题只覆盖这几个 attr, 其余 (中性色/状态色) 仍由
+     values-night 的 colors.xml 覆盖, 两条线互不干扰。 -->
+<resources>
+    <attr name="ksuPrimary" format="color" />
+    <attr name="ksuPrimaryDim" format="color" />
+    <attr name="ksuOnPrimary" format="color" />
+    <attr name="ksuPrimaryContainer" format="color" />
+    <attr name="ksuTopbarBg" format="color" />
+    <attr name="ksuTopbarBgAlt" format="color" />
+    <attr name="ksuTopbarMarkBg" format="color" />
+</resources>

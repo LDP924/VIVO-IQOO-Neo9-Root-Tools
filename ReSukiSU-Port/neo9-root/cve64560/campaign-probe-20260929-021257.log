@@ -1,0 +1,27 @@
+stage0 v3 mode=probe KS=20000 workers=15 exec_after=100 exec_cpu=6 parent_cpu=0 del=[1,2,3,4] socks=512 msgs=8 send=0x2000 rcu=0 drain_ms=6000 attempts=500
+baseline boot_id=affbd6d9-3de2-45a8-86d4-40bf600fe879
+  forged_parent=0xffffff80aaf27158
+[progress] 20/500 attempts, 9.4s, drain_last=5ms
+[progress] 40/500 attempts, 18.7s, drain_last=5ms
+[progress] 60/500 attempts, 28.7s, drain_last=4ms
+[progress] 80/500 attempts, 38.1s, drain_last=4ms
+[progress] 100/500 attempts, 47.3s, drain_last=6ms
+[progress] 120/500 attempts, 57.5s, drain_last=3ms
+[progress] 140/500 attempts, 67.9s, drain_last=3ms
+[progress] 160/500 attempts, 77.9s, drain_last=4ms
+[progress] 180/500 attempts, 87.8s, drain_last=3ms
+[progress] 200/500 attempts, 97.6s, drain_last=4ms
+[progress] 220/500 attempts, 107.4s, drain_last=3ms
+[progress] 240/500 attempts, 117.2s, drain_last=4ms
+[progress] 260/500 attempts, 126.5s, drain_last=6ms
+[progress] 280/500 attempts, 135.7s, drain_last=3ms
+[progress] 300/500 attempts, 145.1s, drain_last=3ms
+[progress] 320/500 attempts, 154.4s, drain_last=4ms
+[progress] 340/500 attempts, 163.6s, drain_last=4ms
+[progress] 360/500 attempts, 172.8s, drain_last=6ms
+[progress] 380/500 attempts, 182.0s, drain_last=6ms
+[progress] 400/500 attempts, 191.2s, drain_last=5ms
+[progress] 420/500 attempts, 200.4s, drain_last=5ms
+[progress] 440/500 attempts, 209.6s, drain_last=6ms
+[progress] 460/500 attempts, 218.8s, drain_last=6ms
+Terminated 

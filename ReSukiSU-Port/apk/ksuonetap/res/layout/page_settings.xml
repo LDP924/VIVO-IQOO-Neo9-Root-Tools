@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 设置页 (dock 第 3 项): 一键提取模式 / 当前设备判定 / 外观(色板 + 深浅)。
+     关于已独立成页 (activity_about.xml)。顶栏不再放返回键 —— dock 就是导航。 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg_window">
+
+    <LinearLayout
+        android:id="@+id/topBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_topbar"
+        android:elevation="4dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="18dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_title"
+            android:textColor="@color/topbar_fg"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/settingsContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="24dp">
+
+            <!-- ========== 一键提取模式 ========== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_card"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_section_extract"
+                    android:textAllCaps="true"
+                    style="@style/Text.SectionTitle" />
+
+                <LinearLayout
+                    android:id="@+id/optRootKsu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/bg_option_off"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <RadioButton
+                        android:id="@+id/rbRootKsu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_mode_root_ksu"
+                        style="@style/Text.OptionTitle" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="34dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/settings_mode_root_ksu_desc"
+                        style="@style/Text.OptionDesc" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/optRootOnly"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_option_off"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <RadioButton
+                        android:id="@+id/rbRootOnly"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/settings_mode_root_only"
+                        style="@style/Text.OptionTitle" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="34dp"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/settings_mode_root_only_desc"
+                        style="@style/Text.OptionDesc" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ========== 外观 (色板 + 深浅模式) ========== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_card"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_section_theme"
+                    android:textAllCaps="true"
+                    style="@style/Text.SectionTitle" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:text="@string/theme_seed_label"
+                    style="@style/Text.AboutLabel" />
+
+                <!-- 色点行: 圆环 + 色点都是代码填的 (颜色从色板 style 的 ksuPrimary 读,
+                     所以这里的顺序必须与 Theme.SEEDS 一致) -->
+                <LinearLayout
+                    android:id="@+id/seedRow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <FrameLayout
+                        android:id="@+id/dotItem0"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                        <View
+                            android:id="@+id/dotColor0"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/dotItem1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                        <View
+                            android:id="@+id/dotColor1"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/dotItem2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                        <View
+                            android:id="@+id/dotColor2"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/dotItem3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                        <View
+                            android:id="@+id/dotColor3"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/dotItem4"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                        <View
+                            android:id="@+id/dotColor4"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/dotItem5"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp">
+
+                        <View
+                            android:id="@+id/dotColor5"
+                            android:layout_width="26dp"
+                            android:layout_height="26dp"
+                            android:layout_gravity="center" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvSeedName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/theme_seed_purple"
+                    android:textColor="?attr/ksuPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/theme_mode_label"
+                    style="@style/Text.AboutLabel" />
+
+                <LinearLayout
+                    android:id="@+id/modeRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/modeItem0"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_option_off"
+                        android:gravity="center"
+                        android:paddingTop="11dp"
+                        android:paddingBottom="11dp"
+                        android:text="@string/theme_mode_system"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/modeItem1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_option_off"
+                        android:gravity="center"
+                        android:paddingTop="11dp"
+                        android:paddingBottom="11dp"
+                        android:text="@string/theme_mode_light"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/modeItem2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_option_off"
+                        android:gravity="center"
+                        android:paddingTop="11dp"
+                        android:paddingBottom="11dp"
+                        android:text="@string/theme_mode_dark"
+                        android:textColor="@color/text_primary"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvThemeNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/theme_note"
+                    style="@style/Text.AboutNotice" />
+            </LinearLayout>
+
+            <!-- ========== 当前设备判定 ========== -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:background="@drawable/bg_card"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:paddingTop="16dp"
+                android:paddingBottom="18dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/settings_current_device"
+                    android:textAllCaps="true"
+                    style="@style/Text.SectionTitle" />
+
+                <TextView
+                    android:id="@+id/tvDeviceDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="monospace"
+                    android:text="@string/state_checking"
+                    style="@style/Text.AboutNotice" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
