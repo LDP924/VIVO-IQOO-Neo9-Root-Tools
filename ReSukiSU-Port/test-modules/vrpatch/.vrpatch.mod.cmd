@@ -1,1 +1,0 @@
-cmd_/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/vrpatch/vrpatch.mod := printf '%s\n'   vrpatch.o | awk '!x[$$0]++ { print("/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/vrpatch/"$$0) }' > /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/vrpatch/vrpatch.mod

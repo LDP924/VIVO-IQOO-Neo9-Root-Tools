@@ -1,5 +1,0 @@
-stage0 v3 mode=probe KS=2000 workers=5 exec_after=100 exec_cpu=7 parent_cpu=0 del=[1,2,3,4,5] socks=64 msgs=4 send=0x2000 rcu=20000 drain_ms=6000 attempts=5
-baseline boot_id=affbd6d9-3de2-45a8-86d4-40bf600fe879
-  forged_parent=0xffffff80aaf27158
-DRAIN_FAIL attempt=2 active=1907 total=2232 base=1550 alloc=3224 gate=1717
-done: 5 attempts in 7.8s  hits=0

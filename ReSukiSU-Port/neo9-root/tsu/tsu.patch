@@ -1,8 +1,0 @@
---- tsu-8.6.0.orig+++ tsu-8.6.0-mod@@ -278,7 +278,7 @@ 	STARTUP_SCRIPT="$ROOT_SHELL"
- fi
- 
--SU_BINARY_SEARCH=("/system/xbin/su" "/system/bin/su")
-+SU_BINARY_SEARCH=("/debug_ramdisk/.magisk/su" "/system/xbin/su" "/system/bin/su")
- 
- # On some systems with other root methods `/sbin` is inacessible.
- if [[ -x "/sbin" ]]; then

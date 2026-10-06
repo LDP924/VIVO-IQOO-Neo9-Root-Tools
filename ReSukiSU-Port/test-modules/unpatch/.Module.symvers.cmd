@@ -1,1 +1,0 @@
-cmd_/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/Module.symvers := sed 's/\.ko$$/.lto\.o/' /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/modules.order | scripts/mod/modpost -m  -E -o /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/Module.symvers -e -v gaacdc35637c4-dirty    -w -T -

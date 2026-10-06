@@ -1,1 +1,0 @@
-cmd_/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/vrpatch/vrpatch.lto.o := ld.lld -EL  -maarch64elf -z norelro -mllvm -import-instr-limit=5 -z noexecstack   -r -o /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/vrpatch/vrpatch.lto.o  --whole-archive /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/vrpatch/vrpatch.o

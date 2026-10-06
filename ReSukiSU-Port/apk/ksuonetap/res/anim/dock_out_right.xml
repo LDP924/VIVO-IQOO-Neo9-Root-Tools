@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- dock 切页 · 向左翻的出场侧: 当前页右移 25% (视差) -->
-<set xmlns:android="http://schemas.android.com/apk/res/android"
-    android:interpolator="@android:interpolator/decelerate_quint">
-    <translate
-        android:duration="240"
-        android:fromXDelta="0"
-        android:toXDelta="25%p" />
-</set>

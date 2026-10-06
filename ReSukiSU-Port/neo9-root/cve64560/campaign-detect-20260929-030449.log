@@ -1,5 +1,0 @@
-stage0 v3 mode=detect KS=5000 workers=15 exec_after=100 exec_cpu=6 parent_cpu=0 del=[1,2,3,4] socks=64 msgs=4 send=0x3de0 rcu=0 drain_ms=6000 attempts=5
-   irq: fds=1 period=50000ns lead=20000ns sweep=20000 x32
-detect 模式：安全片段（rb 指针全 0）—— 命中判据 = 回读流里出现连续零字节
-DETECT_HIT attempt=1 sockets=64 via_ptr=0 via_zero=64 created=5000 deleted=5000 mark=1 ack=1 sent=256
-done: 5 attempts in 0.5s  hits=0

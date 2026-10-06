@@ -1,1 +1,0 @@
-/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/vrpatch/vrpatch.o
