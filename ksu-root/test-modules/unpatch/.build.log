@@ -1,0 +1,19 @@
+make: Entering directory '/home/dengxiang/kernel/vivo-neo9-android15'
+  CC [M]  /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.o
+  LTO [M] /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.lto.o
+WARNING: Symbol version dump "Module.symvers" is missing.
+         Modules may not have dependencies or modversions.
+         You may get many unresolved symbol warnings.
+  MODPOST /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/Module.symvers
+WARNING: modpost: "module_layout" [/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.ko] undefined!
+WARNING: modpost: "memstart_addr" [/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.ko] undefined!
+WARNING: modpost: "init_mm" [/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.ko] undefined!
+WARNING: modpost: "kimage_voffset" [/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.ko] undefined!
+WARNING: modpost: "__ubsan_handle_cfi_check_fail_abort" [/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.ko] undefined!
+WARNING: modpost: "kick_all_cpus_sync" [/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.ko] undefined!
+WARNING: modpost: "caches_clean_inval_pou" [/home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.ko] undefined!
+  CC [M]  /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.mod.o
+  LD [M]  /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.ko
+  BTF [M] /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.ko
+Skipping BTF generation for /home/dengxiang/Desktop/ReSukiSU-Port-For-IQOO_Neo9/test-modules/unpatch/unpatch.ko due to unavailability of vmlinux
+make: Leaving directory '/home/dengxiang/kernel/vivo-neo9-android15'

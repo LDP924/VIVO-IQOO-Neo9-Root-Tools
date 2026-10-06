@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 关于页顶部的品牌圆标底座 (浅底上用的那一个; 顶栏那个是半透明白)。
+     底色用 ksuTopbarBg 而不是 ksuPrimary: 品牌图形是白机器人 + 金钥匙,
+     需要**深色底**才看得清, 而 ksuPrimary 在深色模式下是浅色调。 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="?attr/ksuTopbarBg" />
+</shape>

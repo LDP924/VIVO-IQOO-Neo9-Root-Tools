@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.neoroot.ksuonetap"
+    android:versionCode="10"
+    android:versionName="v1.2.0-kernelsu-original">
+    <uses-sdk android:minSdkVersion="28" android:targetSdkVersion="34" />
+    <uses-permission android:name="moe.shizuku.manager.permission.API_V23" />
+    <!-- GhostLock 执行链需要: 内核 paranoid networking 下, 无 INTERNET 权限的进程
+         没有 inet(3003) 补充组, socket(AF_INET) 直接 EPERM (2026-10-03 实测)。
+         GhostLock App 同样声明了此权限 —— mcast route 在其域内可用。 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- KernelSU 管理器免 root 安装: PackageInstaller 会话唤起系统安装器
+         (GhostLock App v4 同款; exploit 域 pm install 已证死: "Can't find
+         service: package", 2026-10-05 实测, 只有 untrusted_app 域能发起安装)。 -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <application
+        android:name="com.neoroot.ksuonetap.App"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/Theme.KSUOneTap"
+        android:allowBackup="false"
+        android:supportsRtl="true">
+        <!-- shizuku binder 注入 provider (必须; authorities 写死, aapt2 不替换 ${applicationId}) -->
+        <provider
+            android:name="rikka.shizuku.ShizukuProvider"
+            android:authorities="com.neoroot.ksuonetap.shizuku"
+            android:enabled="true"
+            android:exported="true"
+            android:multiprocess="false" />
+        <!-- 唯一入口: 四个页面 (主页/日志/设置/关于) 是它里面 SwipePager 的四页 -->
+        <activity
+            android:name="com.neoroot.ksuonetap.ui.PagerActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.neoroot.ksuonetap.ui.TerminalActivity"
+            android:exported="false"
+            android:label="@string/terminal_title"
+            android:parentActivityName="com.neoroot.ksuonetap.ui.PagerActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="adjustResize" />
+    </application>
+</manifest>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- dock 切页 · 向左翻: 目标页从左侧滑入 (点击索引更小的 tab, 如 关于 -> 设置) -->
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:interpolator="@android:interpolator/decelerate_quint">
+    <translate
+        android:duration="240"
+        android:fromXDelta="-100%p"
+        android:toXDelta="0" />
+</set>

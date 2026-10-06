@@ -1,0 +1,59 @@
+KernelSU (原版) 版本状态
+=========================
+(2026-10-06 起本工程内核驱动 = 原版 tiann/KernelSU; ReSukiSU 线产物已归档/移除,
+ 旧 VERSION.txt 的 ReSukiSU 记录见系统回收站 / git 历史)
+
+【源码】 source/KernelSU-upstream -> /home/dengxiang/kernel/KernelSU-upstream (符号链接, 完整 .git)
+  KSU_VERSION            = 32601
+  公式                   = 30000 + git rev-list --count HEAD (原版公式, 无 +700 偏移)
+  提交数                 = 2601
+  分支 / 提交            = tag v3.3.0 @ 932014ab
+  !! 版本号必须与 Manager 一致: 浅克隆会算错 (30001), 必须 unshallow / checkout tag。
+
+【适用系统】PD2338_A_16.2.13.2.W10.V000L1
+           (iQOO Neo9 / V2338A; OriginOS 6 / Android 16; 内核 5.15.197-g708015331567-dirty)
+  驱动 ko 是【系统版本绑定产物】, 按系统版本分目录存 (apk/ksuonetap/assets/<版本>/)。
+  换系统版本 = 新目录 + 重编 ko + 重取证 vrpatch。
+
+【驱动 ko】kernel-module/kernelsu-vanilla-197.ko
+           (= apk/ksuonetap/assets/PD2338_A_16.2.13.2.W10.V000L1/kernelsu-vanilla-197.ko)
+  KSU_VERSION            = 32601 (v3.3.0)
+  文件                   = 6,611,496 字节
+  sha256                 = c25640904a493b8f897d2983955217a86060e61221874d6e983aee6042a6d3cb
+  vermagic               = 5.15.197-g708015331567-dirty SMP preempt mod_unload modversions vivo aarch64
+                           (与设备 uname -r 一致)
+  真机验证               = 2026-10-05 22:00 GhostLock App v4 现场测试: exploit 链 30.5s
+                           零 panic, ko 加载 → "KernelSU ready", Manager 识别内核 32601。
+  编译方式               = 混血内核树 M= 外部模块模式 (全树 make modules 不可用,
+                           缺 io_uring/io-wq.h):
+     make -C ~/kernel/vivo-neo9-16 ARCH=arm64 LLVM=1 \
+          KCFLAGS="-I security/selinux/include/generated" \
+          M=$HOME/kernel/KernelSU-upstream/kernel modules
+  内核树                 = ~/kernel/vivo-neo9-16 (drivers/kernelsu -> 同一源码的符号链接)
+  详细配方               = 见 README-kernelsu-vanilla.md
+
+【管理器 / ksud】apk/ksuonetap/assets/ (顶层, 不绑系统版本)
+  manager : assets/KernelSU.apk = 官方 KernelSU_v3.3.0-release.apk
+            versionCode 32601 / versionName v3.3.0, 10,777,987 字节
+            sha256 c197060ecb89702e...
+            !! 必须用官方签名版: 原版 ko 内嵌管理器签名白名单, 重打包版不被认。
+  ksud    : assets/ksud = 官方 ksud-aarch64-linux-android v3.3.0
+            6,286,568 字节, sha256 8614de6cdc2233c7...
+            manager / ksud / ko 三者同源 (都是 v3.3.0 = 32601)。
+
+【与 ReSukiSU 时代的差异】(踩过的坑)
+  - 版本公式无 +700 偏移: ReSukiSU = 30000+commits+700, 原版 = 30000+commits。
+  - ko 无 allow_shell 模块参数: `ksud insmod ko.ko allow_shell=1` 会直接失败,
+    只能裸 insmod (DeployScript.ksuLoadCommand 已同步去掉)。
+  - 原版 KSU init 会收掉加载后的同会话 root 脚本: vrpatch/sepolicy 必须在
+    insmod 之前做 (GhostlockRunner.activateKsu 已按此顺序)。
+  - 管理器安装不能走 exploit 域的 pm install ("Can't find service: package"),
+    用 App 侧 PackageInstaller 会话免 root 唤起 (GhostlockRunner.promptInstallKsuManager)。
+  - su_ksu (ReSukiSU 客户端) 与原版 ko 的 supercall/UAPI 不保证兼容; 部署后的
+    root 授权走 KernelSU Manager (me.weishu.kernelsu)。
+
+【核对命令】
+  git -C source/KernelSU-upstream describe --tags          # 应为 v3.3.0
+  git -C source/KernelSU-upstream rev-list --count HEAD    # 应为 2601
+  sha256sum -c kernel-module/SHA256SUMS                    # ko 完整性
+  aapt2 dump badging apk/ksuonetap/assets/KernelSU.apk | grep versionCode  # 应为 32601

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 主题定义 (深色版)。与 values/themes.xml 同名 style, 在 night 配置下整体生效。
+     深色下顶栏统一压暗 (渐变 #1B1A20 -> #2B2930), 主色只用于强调
+     (圆点/文字/描边/按钮), 这样色板在深色里也不会因为大面积高饱和而刺眼。
+     ⚠️ ksuPrimary / ksuPrimaryDim 在深色下是**浅色**值 —— 顶栏渐变不能直接用它们,
+     否则会变成浅底配 topbar_fg 的浅字, 对比度几乎为零 (2026-09-27 修)。 -->
+<resources>
+    <style name="Theme.KSUOneTap" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:windowBackground">@color/bg_window</item>
+        <item name="android:navigationBarColor">@color/bg_window</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:statusBarColor">#FF2B2930</item>
+        <item name="android:colorAccent">#FFD0BCFF</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="ksuPrimary">#FFD0BCFF</item>
+        <item name="ksuPrimaryDim">#FFB69DF8</item>
+        <item name="ksuOnPrimary">#FF381E72</item>
+        <item name="ksuPrimaryContainer">#FF4F378B</item>
+        <item name="ksuTopbarBg">#FF2B2930</item>
+        <item name="ksuTopbarBgAlt">#FF1B1A20</item>
+        <item name="ksuTopbarMarkBg">#33D0BCFF</item>
+    </style>
+
+    <style name="Theme.KSUOneTap.Blue" parent="Theme.KSUOneTap">
+        <item name="android:colorAccent">#FFA8C8FF</item>
+        <item name="ksuPrimary">#FFA8C8FF</item>
+        <item name="ksuPrimaryDim">#FF8AB4F8</item>
+        <item name="ksuOnPrimary">#FF00305F</item>
+        <item name="ksuPrimaryContainer">#FF1F4B7A</item>
+        <item name="ksuTopbarBg">#FF2B2930</item>
+        <item name="ksuTopbarBgAlt">#FF1B1A20</item>
+        <item name="ksuTopbarMarkBg">#33A8C8FF</item>
+    </style>
+
+    <style name="Theme.KSUOneTap.Teal" parent="Theme.KSUOneTap">
+        <item name="android:colorAccent">#FF4FD8DC</item>
+        <item name="ksuPrimary">#FF4FD8DC</item>
+        <item name="ksuPrimaryDim">#FF35BFC3</item>
+        <item name="ksuOnPrimary">#FF00363A</item>
+        <item name="ksuPrimaryContainer">#FF005055</item>
+        <item name="ksuTopbarBg">#FF2B2930</item>
+        <item name="ksuTopbarBgAlt">#FF1B1A20</item>
+        <item name="ksuTopbarMarkBg">#334FD8DC</item>
+    </style>
+
+    <style name="Theme.KSUOneTap.Green" parent="Theme.KSUOneTap">
+        <item name="android:colorAccent">#FFA1D39A</item>
+        <item name="ksuPrimary">#FFA1D39A</item>
+        <item name="ksuPrimaryDim">#FF86BA80</item>
+        <item name="ksuOnPrimary">#FF0F3A10</item>
+        <item name="ksuPrimaryContainer">#FF2A5028</item>
+        <item name="ksuTopbarBg">#FF2B2930</item>
+        <item name="ksuTopbarBgAlt">#FF1B1A20</item>
+        <item name="ksuTopbarMarkBg">#33A1D39A</item>
+    </style>
+
+    <style name="Theme.KSUOneTap.Orange" parent="Theme.KSUOneTap">
+        <item name="android:colorAccent">#FFFFB870</item>
+        <item name="ksuPrimary">#FFFFB870</item>
+        <item name="ksuPrimaryDim">#FFE89B4E</item>
+        <item name="ksuOnPrimary">#FF4A2800</item>
+        <item name="ksuPrimaryContainer">#FF6B3D00</item>
+        <item name="ksuTopbarBg">#FF2B2930</item>
+        <item name="ksuTopbarBgAlt">#FF1B1A20</item>
+        <item name="ksuTopbarMarkBg">#33FFB870</item>
+    </style>
+
+    <style name="Theme.KSUOneTap.Red" parent="Theme.KSUOneTap">
+        <item name="android:colorAccent">#FFFFB4AB</item>
+        <item name="ksuPrimary">#FFFFB4AB</item>
+        <item name="ksuPrimaryDim">#FFFF897D</item>
+        <item name="ksuOnPrimary">#FF690005</item>
+        <item name="ksuPrimaryContainer">#FF93000A</item>
+        <item name="ksuTopbarBg">#FF2B2930</item>
+        <item name="ksuTopbarBgAlt">#FF1B1A20</item>
+        <item name="ksuTopbarMarkBg">#33FFB4AB</item>
+    </style>
+</resources>

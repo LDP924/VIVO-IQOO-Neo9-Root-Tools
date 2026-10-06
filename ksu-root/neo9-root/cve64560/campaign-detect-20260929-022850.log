@@ -1,0 +1,12 @@
+stage0 v3 mode=detect KS=20000 workers=15 exec_after=100 exec_cpu=5 parent_cpu=0 del=[1,2,3,4] socks=512 msgs=8 send=0x3de0 rcu=0 drain_ms=6000 attempts=3
+detect 模式：安全片段（rb 指针全 0）—— 命中判据 = 回读流里出现连续零字节
+  attempt=1 created=20000 slab_after_create=21886/21886
+  attempt=1 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=17781 exec_at_us=176 (no hit)
+  timing(ms) create=81.6 storm=59.0 drain=40.5 fill=41.6 kill=1.8 check=505.1 | PRE_DRAIN+slab=81.6 total=729.5
+  attempt=2 created=20000 slab_after_create=21886/21886
+  attempt=2 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=20189 exec_at_us=265 (no hit)
+  timing(ms) create=205.7 storm=77.4 drain=35.5 fill=41.7 kill=2.2 check=492.6 | PRE_DRAIN+slab=205.7 total=855.1
+  attempt=3 created=20000 slab_after_create=22165/22165
+  attempt=3 created=20000 deleted=20000 mark=1 ack=1 sent=4096 storm_us=17661 exec_at_us=125 (no hit)
+  timing(ms) create=93.9 storm=58.6 drain=33.6 fill=54.1 kill=1.6 check=532.1 | PRE_DRAIN+slab=93.9 total=773.7
+done: 3 attempts in 2.4s  hits=0
