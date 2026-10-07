@@ -1,0 +1,78 @@
+name: auto-build
+
+on:
+  schedule:
+    - cron: '0 4,16 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: actions/cache@v6
+        with:
+          path: ~/kbuild
+          key: kernel-aosp-android13-5.15-v4
+
+      - name: deps
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq gcc g++ flex bison bc libelf-dev zlib1g-dev libzstd-dev apksigner zipalign
+
+      - name: ndk
+        run: |
+          curl -sfL https://dl.google.com/android/repository/android-ndk-r27-linux.zip -o /tmp/ndk.zip
+          unzip -q /tmp/ndk.zip -d "$HOME"
+          echo "$HOME/android-ndk-r27/toolchains/llvm/prebuilt/linux-x86_64/bin" >> "$GITHUB_PATH"
+
+
+
+      - name: check
+        id: up
+        run: bash scripts/auto/check_upstream.sh
+
+      - name: build
+        id: bk
+        if: steps.up.outputs.need_build == 'true'
+        run: |
+          bash scripts/auto/build_os5.sh ${{ steps.up.outputs.ksu_sha }} 2>&1 | tee /tmp/build.log
+          ec=${PIPESTATUS[0]}
+          if [ "$ec" != "0" ]; then
+            {
+              echo "## BUILD FAILED"
+              grep -a "FAIL:" /tmp/build.log || true
+              echo "### tail"
+              tail -40 /tmp/build.log || true
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit "$ec"
+
+      - name: verify vermagic
+        if: steps.up.outputs.need_build == 'true'
+        run: bash scripts/auto/verify_artifacts.sh vermagic
+
+      - name: verify 0x178
+        if: steps.up.outputs.need_build == 'true'
+        run: bash scripts/auto/verify_artifacts.sh offset
+
+      - name: verify version
+        if: steps.up.outputs.need_build == 'true'
+        run: bash scripts/auto/verify_artifacts.sh version
+
+      - name: verify apk
+        if: steps.up.outputs.need_build == 'true'
+        run: bash scripts/auto/verify_artifacts.sh apk
+
+      - name: release
+        if: steps.up.outputs.need_build == 'true'
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ steps.bk.outputs.ver }}-${{ steps.up.outputs.ksu_sha8 }}
+          name: KSUOneTap ${{ steps.bk.outputs.ver }}
+          body_path: out/.release-notes.md
+          files: |
+            out/KSUOneTap-${{ steps.bk.outputs.ver }}-kernelsu-original.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
